@@ -3,3 +3,4 @@
  */
 declare const useJalaliLocaleListener: () => void;
 export default useJalaliLocaleListener;
+//# sourceMappingURL=jalali-locale-listener-hook.d.ts.map

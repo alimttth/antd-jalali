@@ -5,3 +5,4 @@ export interface TimePickerProps extends Omit<PickerProps<Dayjs>, "picker"> {
 }
 declare const TimePicker: React.ForwardRefExoticComponent<TimePickerProps & React.RefAttributes<any>>;
 export default TimePicker;
+//# sourceMappingURL=TimePicker.d.ts.map

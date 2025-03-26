@@ -33,3 +33,4 @@ declare const locale: {
     };
 };
 export default locale;
+//# sourceMappingURL=locale.d.ts.map

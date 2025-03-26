@@ -9,6 +9,12 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { default as faLocale } from "./locale";
 
+// Add leap year detection
+const isLeapYear = (year: number): boolean => {
+  const remainder = year % 33;
+  return remainder === 1 || remainder === 5 || remainder === 9 || remainder === 13 || remainder === 17 || remainder === 22 || remainder === 26 || remainder === 30;
+};
+
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
 dayjs.extend(weekday);
@@ -131,6 +137,24 @@ const generateJalaliConfig = {
       parseNoMatchNotice();
       return null;
     },
+  },
+
+  // Add leap year handling
+  isLeapYear: (date: Dayjs) => {
+    const year = date.year();
+    return isLeapYear(year);
+  },
+
+  getDaysInMonth: (date: Dayjs) => {
+    const month = date.month();
+    const year = date.year();
+    const isLeap = isLeapYear(year);
+    
+    // In Jalali calendar, the first 6 months have 31 days, the next 5 months have 30 days,
+    // and the last month (Esfand) has 29 days in common years and 30 days in leap years
+    if (month < 6) return 31;
+    if (month < 11) return 30;
+    return isLeap ? 30 : 29;
   },
 };
 

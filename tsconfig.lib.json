@@ -16,9 +16,11 @@
     "declarationMap": true,
     "noImplicitAny": false,
     "jsx": "react",
-    "outDir": "es"
+    "outDir": "es",
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["./src/**/*"],
-  "exclude": ["./src/index.js"]
+  "exclude": ["./src/index.js", "./src/App.tsx", "./src/main.tsx", "./src/react-app-env.d.ts"]
 }
 

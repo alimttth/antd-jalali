@@ -1,6 +1,4 @@
 import { Dayjs } from "dayjs";
-declare const Calendar: {
-    (props: import("antd/es/calendar/generateCalendar").CalendarProps<Dayjs>): import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
-    displayName: string;
-};
+declare const Calendar: import("react").FC<Readonly<import("antd/es/calendar/generateCalendar").CalendarProps<Dayjs>>>;
 export default Calendar;
+//# sourceMappingURL=Calendar.d.ts.map

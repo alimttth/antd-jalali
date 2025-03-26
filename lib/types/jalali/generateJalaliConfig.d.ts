@@ -36,3 +36,4 @@ declare const generateJalaliConfig: {
     getDaysInMonth: (date: Dayjs) => 30 | 31 | 29;
 };
 export default generateJalaliConfig;
+//# sourceMappingURL=generateJalaliConfig.d.ts.map

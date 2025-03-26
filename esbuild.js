@@ -8,6 +8,7 @@ if (!existsSync(lib)) {
   mkdirSync(lib);
 }
 
+const externalDeps = ['antd', 'react', 'dayjs', 'jalaliday', 'rc-picker', 'jalali-plugin-dayjs'];
 
 esbuild
   .build({
@@ -19,7 +20,7 @@ esbuild
     splitting: true,
     format: 'esm',
     target: ['esnext'],
-    external: ['antd','react','dayjs','jalaliday','rc-picker'],
+    external: externalDeps,
   })
   .catch(() => process.exit(1));
 
@@ -32,7 +33,7 @@ esbuild
     minify: true,
     platform: 'node',
     target: ['node16'],
-    external: ['antd','react','dayjs','jalaliday','rc-picker'],
+    external: externalDeps,
   })
   .catch(() => process.exit(1));
 
