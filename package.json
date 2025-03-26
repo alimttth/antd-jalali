@@ -33,8 +33,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "ts-declaration": " tsc -p ./tsconfig.lib.json --emitDeclarationOnly --outDir lib/types",
-    "build:lib": "rimraf lib && node ./esbuild.js && npm run ts-declaration",
-    "prepublishOnly": "npm run build:lib"
+    "build:lib": "rimraf lib && node ./esbuild.js && npm run ts-declaration"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
@@ -69,8 +68,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
