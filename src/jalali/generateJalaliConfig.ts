@@ -19,12 +19,6 @@ dayjs.extend(jalaliday);
 
 dayjs.locale(faLocale, undefined, true);
 
-// Add leap year detection
-const isLeapYear = (year: number): boolean => {
-  const remainder = year % 33;
-  return remainder === 1 || remainder === 5 || remainder === 9 || remainder === 13 || remainder === 17 || remainder === 22 || remainder === 26 || remainder === 30;
-};
-
 dayjs.extend((o, c) => {
   // todo support Wo (ISO week)
   const proto = c.prototype;
@@ -44,7 +38,7 @@ const localeMap: IlocaleMapObject = {
   fa_IR: "fa",
 };
 
-const parseLocale = (locale: string): string => {
+const parseLocale = (locale: string) => {
   const mapLocale = localeMap[locale];
   return mapLocale || locale.split("_")[0];
 };
@@ -56,50 +50,50 @@ const parseNoMatchNotice = () => {
 
 const generateJalaliConfig = {
   // get
-  getNow: (): Dayjs => dayjs(),
-  getFixedDate: (dateString: string): Dayjs => dayjs(dateString, "YYYY-MM-DD"),
-  getEndDate: (date: Dayjs): Dayjs => date.endOf("month"),
-  getWeekDay: (date?: Dayjs): number => {
+  getNow: () => dayjs(),
+  getFixedDate: (string) => dayjs(string, "YYYY-MM-DD"),
+  getEndDate: (date) => date.endOf("month"),
+  getWeekDay: (date) => {
     if (!date?.weekday()) {
       date = dayjs();
     }
     const clone = date.locale("en");
     return clone.weekday() + clone.localeData().firstDayOfWeek();
   },
-  getYear: (date: Dayjs): number => date.year(),
-  getMonth: (date: Dayjs): number => date.month(),
-  getDate: (date: Dayjs): number => date.date(),
-  getHour: (date: Dayjs): number => date.hour(),
-  getMinute: (date: Dayjs): number => date.minute(),
-  getSecond: (date: Dayjs): number => date.second(),
+  getYear: (date) => date.year(),
+  getMonth: (date) => date.month(),
+  getDate: (date) => date.date(),
+  getHour: (date) => date.hour(),
+  getMinute: (date) => date.minute(),
+  getSecond: (date) => date.second(),
 
   // set
-  addYear: (date: Dayjs, diff: number): Dayjs => date.add(diff, "year"),
-  addMonth: (date: Dayjs, diff: number): Dayjs => date.add(diff, "month"),
-  addDate: (date: Dayjs, diff: number): Dayjs => date.add(diff, "day"),
-  setYear: (date: Dayjs, year: number): Dayjs => date.year(year),
-  setMonth: (date: Dayjs, month: number): Dayjs => date.month(month),
-  setDate: (date: Dayjs, num: number): Dayjs => date.date(num),
-  setHour: (date: Dayjs, hour: number): Dayjs => date.hour(hour),
-  setMinute: (date: Dayjs, minute: number): Dayjs => date.minute(minute),
-  setSecond: (date: Dayjs, second: number): Dayjs => date.second(second),
+  addYear: (date, diff) => date.add(diff, "year"),
+  addMonth: (date, diff) => date.add(diff, "month"),
+  addDate: (date, diff) => date.add(diff, "day"),
+  setYear: (date, year) => date.year(year),
+  setMonth: (date, month) => date.month(month),
+  setDate: (date, num) => date.date(num),
+  setHour: (date, hour) => date.hour(hour),
+  setMinute: (date, minute) => date.minute(minute),
+  setSecond: (date, second) => date.second(second),
 
-  getMillisecond: (date: Dayjs): number => date.millisecond(),
-  setMillisecond: (date: Dayjs, millisecond: number): Dayjs => date.millisecond(millisecond),
+  getMillisecond: (date) => date.millisecond(),
+  setMillisecond: (date, second) => date.millisecond(second),
 
   // Compare
-  isAfter: (date1: Dayjs, date2: Dayjs): boolean => date1.isAfter(date2),
-  isValidate: (date: Dayjs): boolean => date.isValid(),
+  isAfter: (date1, date2) => date1.isAfter(date2),
+  isValidate: (date) => date.isValid(),
   locale: {
-    getWeekFirstDate: (locale: string, date: Dayjs): Dayjs => date.locale(parseLocale(locale)).weekday(0),
-    getWeekFirstDay: (locale: string): number => dayjs().locale(parseLocale(locale)).localeData().firstDayOfWeek(),
-    getWeek: (locale: string, date: Dayjs): number => date.locale(parseLocale(locale)).week(),
-    getShortWeekDays: (locale: string): string[] => dayjs().locale(parseLocale(locale)).localeData().weekdaysMin(),
-    getShortMonths: (locale: string): string[] => dayjs().locale(parseLocale(locale)).localeData().monthsShort(),
-    format: (locale: string, date: Dayjs, format: string): string => {
+    getWeekFirstDate: (locale, date) => date.locale(parseLocale(locale)).weekday(0),
+    getWeekFirstDay: (locale) => dayjs().locale(parseLocale(locale)).localeData().firstDayOfWeek(),
+    getWeek: (locale, date) => date.locale(parseLocale(locale)).week(),
+    getShortWeekDays: (locale) => dayjs().locale(parseLocale(locale)).localeData().weekdaysMin(),
+    getShortMonths: (locale) => dayjs().locale(parseLocale(locale)).localeData().monthsShort(),
+    format: (locale, date, format) => {
       return date.locale(parseLocale(locale)).format(format);
     },
-    parse: (locale: string, text: string, formats: string[]): Dayjs | null => {
+    parse: (locale, text, formats) => {
       if (text.length !== 10) return null;
 
       const localeStr = parseLocale(locale);
@@ -137,24 +131,6 @@ const generateJalaliConfig = {
       parseNoMatchNotice();
       return null;
     },
-  },
-
-  // Add leap year handling
-  isLeapYear: (date: Dayjs): boolean => {
-    const year = date.year();
-    return isLeapYear(year);
-  },
-
-  getDaysInMonth: (date: Dayjs): number => {
-    const month = date.month();
-    const year = date.year();
-    const isLeap = isLeapYear(year);
-    
-    // In Jalali calendar, the first 6 months have 31 days, the next 5 months have 30 days,
-    // and the last month (Esfand) has 29 days in common years and 30 days in leap years
-    if (month < 6) return 31;
-    if (month < 11) return 30;
-    return isLeap ? 30 : 29;
   },
 };
 

@@ -1,24 +1,24 @@
-import { useEffect } from "react";
+import React, { useContext } from "react";
+import { ConfigProvider } from "antd";
 import dayjs from "dayjs";
-import { useLocale } from "antd/lib/locale";
+import jalaliday from "jalaliday";
+import calendar from "dayjs/plugin/calendar";
 
 /**
  * Subscribes to the ConfigProvider locale changes and updates the dayjs calendar based on current locale.
  */
-const JalaliLocaleListener = () => {
-  const { locale } = useLocale();
+const useJalaliLocaleListener = () => {
+  dayjs.extend(calendar);
+  dayjs.extend(jalaliday);
 
-  useEffect(() => {
-    if (locale?.locale === "fa_IR") {
-      // @ts-ignore
+  const { locale } = useContext(ConfigProvider.ConfigContext);
+  React.useEffect(() => {
+    if (locale?.locale == "fa") {
       dayjs["calendar"]?.("jalali");
     } else {
-      // @ts-ignore
       dayjs["calendar"]?.(undefined);
     }
   }, [locale]);
-
-  return null;
 };
 
-export default JalaliLocaleListener;
+export default useJalaliLocaleListener;

@@ -3,7 +3,7 @@ import { DatePicker, Space, Radio, ConfigProvider, Row, Col } from "antd";
 import type { DirectionType } from "antd/lib/config-provider";
 import fa_IR from "antd/lib/locale/fa_IR";
 import en_US from "antd/lib/locale/en_US";
-import { DatePicker as DatePickerJalali, Calendar, JalaliLocaleListener } from "./index";
+import { DatePicker as DatePickerJalali, Calendar, JalaliLocaleListener } from "./index.ts";
 import "./index.css";
 import { RadioChangeEvent } from "antd/lib";
 
@@ -15,12 +15,10 @@ const App = () => {
     const directionValue = e.target.value;
     setDirection(directionValue);
   };
-  
   const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
     setLocale(localeValue);
   };
-
 
   return (
     <>
