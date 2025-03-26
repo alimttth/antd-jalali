@@ -15,10 +15,12 @@ const App = () => {
     const directionValue = e.target.value;
     setDirection(directionValue);
   };
+  
   const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
     setLocale(localeValue);
   };
+
 
   return (
     <>
