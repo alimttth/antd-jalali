@@ -13,12 +13,12 @@
     "dayjs",
     "khorshidi"
   ],
-  "author": "SaeedRahimi",
-  "homepage": "https://saeedrahimi.github.io/antd-jalali",
+  "author": "Ali",
+  "homepage": "https://github.com/jaali/antd-jalali-persian",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/saeedrahimi/antd-jalali"
+    "url": "https://github.com/jaali/antd-jalali-persian"
   },
   "main": "lib/cjs/index.cjs.js",
   "module": "lib/esm/index.js",
