@@ -14,11 +14,11 @@
     "khorshidi"
   ],
   "author": "Ali",
-  "homepage": "https://github.com/jaali/antd-jalali-persian",
+  "homepage": "https://github.com/alimttth/antd-jalali",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaali/antd-jalali-persian"
+    "url": "https://github.com/alimttth/antd-jalali"
   },
   "main": "lib/cjs/index.cjs.js",
   "module": "lib/esm/index.js",
