@@ -1,0 +1,76 @@
+{
+  "name": "antd-jalali",
+  "version": "2.0.1",
+  "description": "A wrapper for ant-design datepicker and calendar to support Jalali calendar type with dayjs.",
+  "keywords": [
+    "ant",
+    "ant5",
+    "datepicker",
+    "calendar",
+    "jalali",
+    "persian",
+    "shamsi",
+    "dayjs",
+    "khorshidi"
+  ],
+  "author": "SaeedRahimi",
+  "homepage": "https://saeedrahimi.github.io/antd-jalali",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saeedrahimi/antd-jalali"
+  },
+  "main": "lib/cjs/index.cjs.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite -d",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "ts-declaration": " tsc -p ./tsconfig.lib.json --emitDeclarationOnly --outDir lib/types",
+    "build:lib": "rimraf lib && node ./esbuild.js && npm run ts-declaration",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "jalaliday": "^2.3.0",
+    "rc-picker": "^4.6.6"
+  },
+  "peerDependencies": {
+    "antd": "^5.18.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
