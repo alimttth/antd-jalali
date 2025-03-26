@@ -1,5 +1,5 @@
-[![npm (scoped with tag)](https://img.shields.io/npm/v/antd-jalali/latest.svg?style=flat-square)](https://npmjs.com/package/antd-jalali)
-[![npm](https://img.shields.io/npm/dt/antd-jalali.svg?style=flat-square)](https://npmjs.com/package/antd-jalali)
+[![npm (scoped with tag)](https://img.shields.io/npm/v/antd-jalali-persian/latest.svg?style=flat-square)](https://npmjs.com/package/antd-jalali-persian)
+[![npm](https://img.shields.io/npm/dt/antd-jalali-persian.svg?style=flat-square)](https://npmjs.com/package/antd-jalali-persian)
 
 # Ant-Design Jalali DatePicker
 
@@ -7,7 +7,7 @@ A wrapper for ant-design date picker and calendar to support Jalali calendar typ
 
 ## Demo
 
-[https://saeedrahimi.github.io/antd-jalali/](https://saeedrahimi.github.io/antd-jalali/)
+[https://jaali.github.io/antd-jalali-persian/](https://jaali.github.io/antd-jalali-persian/)
 
 ## Top Features
 
@@ -20,13 +20,13 @@ A wrapper for ant-design date picker and calendar to support Jalali calendar typ
 ### Ant version 5.x.x
 
 ```
-npm i antd-jalali@v2.x.x
+npm i antd-jalali-persian@v2.x.x
 ```
 
 ### Ant version 4.x.x
 
 ```
-npm i antd-jalali@v1.4.x
+npm i antd-jalali-persian@v1.4.x
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ npm i antd-jalali@v1.4.x
 import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker, ConfigProvider } from "antd";
-import { DatePicker as DatePickerJalali, Calendar, JalaliLocaleListener } from "antd-jalali";
+import { DatePicker as DatePickerJalali, Calendar, JalaliLocaleListener } from "antd-jalali-persian";
 import fa_IR from "antd/lib/locale/fa_IR";
 import en_US from "antd/lib/locale/en_US";
 import "antd/dist/antd.css";
@@ -65,7 +65,7 @@ You should pass dayjs object with [jalali calendar](https://github.com/alibaba-a
 
 ```jsx
 import dayjs from 'dayjs'
-import { DatePicker as DatePickerJalali, Calendar as CalendarJalali, useJalaliLocaleListener } from "antd-jalali";
+import { DatePicker as DatePickerJalali, Calendar as CalendarJalali, useJalaliLocaleListener } from "antd-jalali-persian";
 
 // You should call this hook in child component of <ConfigProvider>
 // You can also use component helper for this hook <JalaliLocaleListener>
@@ -92,11 +92,5 @@ You can read more information about daysjs jalali on [jalaliday repo](https://gi
 
 ## Contributors
 
-<a href="https://github.com/saeedrahimi">
-<img src="https://github.com/saeedrahimi.png" width="60px;"/></a>
-<a href="https://github.com/masoudit">
-<img src="https://github.com/masoudit.png" width="60px;"/></a>
-<a href="https://github.com/hamidrezaghanbari">
-<img src="https://github.com/hamidrezaghanbari.png" width="60px;"/></a>
-<a href="https://github.com/mohas">
-<img src="https://github.com/mohas.png" width="60px;"/></a>
+<a href="https://github.com/jaali">
+<img src="https://github.com/jaali.png" width="60px;"/></a>
