@@ -10,7 +10,6 @@ import calendar from "dayjs/plugin/calendar";
 const useJalaliLocaleListener = () => {
   dayjs.extend(calendar);
   dayjs.extend(jalaliday);
-
   const { locale } = useContext(ConfigProvider.ConfigContext);
   React.useEffect(() => {
     if (locale?.locale == "fa") {

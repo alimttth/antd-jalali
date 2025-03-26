@@ -5,5 +5,4 @@ const JalaliLocaleListener = () => {
   useJalaliLocaleListener();
   return <></>;
 };
-
 export default JalaliLocaleListener;
